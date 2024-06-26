@@ -121,6 +121,25 @@ Performed univariate analysis for continuous and categorical variables:
 - Analyzed how income impacts the amount spent on wine, meat products, gold products, and fish products.
 - Used scatter plots and calculated correlation coefficients to understand the relationships between income and spending on these categories.
 
+
+### Task 4: Complaint Analysis
+
+1. **Tested Hypothesis on Complaints**:
+   - Tested the hypothesis that recent customers complain less compared to older customers.
+   - Classified customers as recent or older based on their enrollment date.
+   - Performed a t-test to compare the mean complaint rates between recent and older customers.
+
+### Task 5: Campaign Acceptance Analysis
+
+1. **Analyzed Campaign Acceptance**:
+   - Investigated if customers who accept the offer in the first campaign also accept offers in other campaigns.
+
+### Task 6: Customer Profile Analysis
+
+1. **Profile of Responders vs. Non-Responders**:
+   - Analyzed and compared the profiles of customers who responded to campaigns versus those who did not.
+
+
 ## Requirements
 
 - Python 3.x
