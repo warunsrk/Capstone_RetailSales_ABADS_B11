@@ -18,7 +18,7 @@ This repository contains the analysis of customer data from a leading retail gia
 The dataset consists of three main files:
 
 1. **Demographics Data (`demographics.txt`)**: Contains customer demographics information.
-2. **Purchase Behavior Data (`behaviour.json`)**: Contains information on customer purchase behavior over the last 2 years.
+2. **Purchase Behavior Data (`behaviour.json`)**: Contains information on customer purchase behaviour over the last 2 years.
 3. **Campaign Response Data (`campaign.json`)**: Contains customer responses to various marketing campaigns.
 
 ### Demographics Data
@@ -60,7 +60,7 @@ The dataset consists of three main files:
 
 ## Data Preparation
 
-1. **Data Loading**: Loaded the demographic, behavior, and campaign data from respective files.
+1. **Data Loading**: Loaded the demographic, behaviour, and campaign data from respective files.
 2. **Data Cleaning**: 
    - Removed extra spaces in column names.
    - Converted the `Income` column to a numeric type.
@@ -71,7 +71,7 @@ The dataset consists of three main files:
 
 ### 1. Create a Consolidated View of Data
 
-- **Loaded and merged** the datasets from the three files: demographics, behavior, and campaign response.
+- **Loaded and merged** the datasets from the three files: demographics, behaviour, and campaign response.
 - Ensured consistent data types and removed any extra spaces in column names.
 
 ### 2. Data Cleaning
@@ -138,6 +138,98 @@ Performed univariate analysis for continuous and categorical variables:
 
 1. **Profile of Responders vs. Non-Responders**:
    - Analyzed and compared the profiles of customers who responded to campaigns versus those who did not.
+
+
+
+# Customer Response Prediction
+
+This project involves building and deploying a machine-learning model to predict customer responses to marketing campaigns. The model is deployed using Flask to provide a web interface for users to input customer data and receive predictions.
+
+**Data Preparation**
+
+**Steps Followed**
+- Load the Data: The demographic, behaviour, and campaign data were loaded from respective files.
+- Data Cleaning and Preprocessing: The data were cleaned by removing extra spaces in column names and converting income values to a numeric format.
+- Merge Data: The datasets were merged on the ID column to create a consolidated data frame.
+- Handle Missing Values: Missing values were handled using the SimpleImputer with the strategy set to 'mean'.
+
+  ### Model Training
+
+**Steps Followed**
+
+- Feature and Target Selection: Selected relevant features and target variable (Response).
+- Convert Categorical Variables: Convert categorical variables to dummy variables.
+- Split Data: Split the data into training and testing sets.
+- Train Models: Trained both Logistic Regression and Random Forest models.
+- Evaluate Models: Evaluated the models using classification metrics.
+- Save the Best Model: Saved the Random Forest model as it performed better along with the imputer.
+
+### Model Evaluation
+
+**Logistic Regression Model**
+- The Logistic Regression model performance:
+  Logistic Regression Model
+              precision    recall  f1-score   support
+
+           0       0.84      0.89      0.86       668
+           1       0.65      0.54      0.59       232
+
+    accuracy                           0.79       900
+   macro avg       0.74      0.71      0.72       900
+weighted avg       0.78      0.79      0.78       900
+
+Confusion Matrix:
+[[595  73]
+ [106 126]]
+
+
+**Random Forest Model**
+- The Random Forest model performance:
+  Random Forest Model
+              precision    recall  f1-score   support
+
+           0       0.87      0.91      0.89       668
+           1       0.72      0.62      0.67       232
+
+    accuracy                           0.83       900
+   macro avg       0.79      0.76      0.78       900
+weighted avg       0.83      0.83      0.83       900
+
+Confusion Matrix:
+[[609  59]
+ [ 89 143]]
+
+
+**Model Preference**
+
+We chose the Random Forest model because it outperformed the Logistic Regression model across all key metrics:
+
+- Higher accuracy: 0.83 compared to 0.79
+- Better precision and recall for both classes
+- Higher F1-score
+
+### Model Deployment
+
+**Steps Followed**
+
+- Create Flask Application: Set up a Flask application to serve the model.
+- Load Model and Imputer: Loaded the trained Random Forest model and the imputer.
+- Create HTML Form: Created an HTML form to collect user input.
+- Handle Form Submissions: Processed form submissions to collect input data, preprocess it, and use the model to make predictions.
+
+**Flask Application Code**
+The Flask application (app.py) was created to handle user input and provide predictions based on the trained model.
+
+**HTML Form**
+An index.html file was created to provide a user-friendly interface for inputting customer data.
+
+### Outcomes and Inferences
+
+**Model Performance**: The Random Forest model performed better than the Logistic Regression model, with an accuracy of 83% and better precision, recall, and F1-scores.
+**Feature Importance**: Features like Income, MntMeatProducts, MntWines, and Recency were found to be significant in predicting customer response.
+**Model Deployment**: The model was successfully deployed using Flask, providing a user-friendly prediction interface.
+
+
 
 
 ## Requirements
