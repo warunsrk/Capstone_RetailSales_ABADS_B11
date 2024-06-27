@@ -226,7 +226,9 @@ An index.html file was created to provide a user-friendly interface for inputtin
 ### Outcomes and Inferences
 
 **Model Performance**: The Random Forest model performed better than the Logistic Regression model, with an accuracy of 83% and better precision, recall, and F1-scores.
+
 **Feature Importance**: Features like Income, MntMeatProducts, MntWines, and Recency were found to be significant in predicting customer response.
+
 **Model Deployment**: The model was successfully deployed using Flask, providing a user-friendly prediction interface.
 
 
